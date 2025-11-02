@@ -1,0 +1,106 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "mb_to_pm",
+    srcs = ["mb_to_pm.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/cleanup",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:check",
+        "@abseil-cpp//absl/log:flags",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/log:log",
+        "@abseil-cpp//absl/strings",
+        "@libtiles//:pm",
+        "@sqlite3",
+    ],
+)
+
+cc_binary(
+    name = "pm_export_index",
+    srcs = ["pm_export_index.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:initialize",
+        "@libtiles//:pm",
+        "@libtiles//:tileindex",
+    ],
+)
+
+cc_binary(
+    name = "pm_import_index",
+    srcs = ["pm_import_index.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:check",
+        "@abseil-cpp//absl/log:flags",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/log:log",
+        "@libtiles//:pm",
+        "@libtiles//:tileindex",
+    ],
+)
+
+cc_binary(
+    name = "pm_to_mb",
+    srcs = ["pm_to_mb.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/cleanup",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:check",
+        "@abseil-cpp//absl/log:flags",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/log:log",
+        "@abseil-cpp//absl/strings",
+        "@libtiles//:pm",
+        "@sqlite3",
+    ],
+)
+
+cc_binary(
+    name = "pm_to_xyz",
+    srcs = ["pm_to_xyz.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:check",
+        "@abseil-cpp//absl/log:flags",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/log:log",
+        "@fmt",
+        "@libtiles//:pm",
+    ],
+)
+
+cc_binary(
+    name = "xyz_to_pm",
+    srcs = ["xyz_to_pm.cpp"],
+    copts = ["-std=c++20"],
+    linkstatic = 1,
+    deps = [
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log:check",
+        "@abseil-cpp//absl/log:flags",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/log:log",
+        "@abseil-cpp//absl/strings",
+        "@fmt",
+        "@libtiles//:pm",
+        "@re2",
+    ],
+)
